@@ -17,10 +17,6 @@ spec:
         image: probot77/shopping-app-service:latest
         ports:
         - containerPort: 8070
-        env:
-        - name: SPRING_PROFILES_ACTIVE
-          value: "prod"
-
 ---
 apiVersion: v1
 kind: Service
@@ -33,4 +29,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 8070
-  type: NodePort
+  type: LoadBalancer
